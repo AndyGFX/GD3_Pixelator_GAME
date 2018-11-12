@@ -1,0 +1,16 @@
+[remap]
+
+importer="eska.aseprite_importer"
+type="PackedScene"
+path="res://.import/Soso MASTER animation.json-5e89732c86cff8b22747f29cf9972baf.scn"
+
+[deps]
+
+source_file="res://Animations/Player/Soso MASTER animation.json"
+dest_files=[ "res://.import/Soso MASTER animation.json-5e89732c86cff8b22747f29cf9972baf.scn" ]
+
+[params]
+
+sheet_image=""
+post_script=""
+autoplay_animation=""

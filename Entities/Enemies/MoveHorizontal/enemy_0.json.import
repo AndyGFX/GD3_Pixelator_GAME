@@ -1,0 +1,16 @@
+[remap]
+
+importer="eska.aseprite_importer"
+type="PackedScene"
+path="res://.import/enemy_0.json-3c268608e1202fe90b204ec23971d073.scn"
+
+[deps]
+
+source_file="res://Entities/Enemies/MoveHorizontal/enemy_0.json"
+dest_files=[ "res://.import/enemy_0.json-3c268608e1202fe90b204ec23971d073.scn" ]
+
+[params]
+
+sheet_image=""
+post_script=""
+autoplay_animation=""

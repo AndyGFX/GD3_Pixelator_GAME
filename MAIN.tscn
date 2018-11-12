@@ -1,5 +1,160 @@
-[gd_scene format=2]
+[gd_scene load_steps=22 format=2]
 
-[node name="MAIN" type="Node2D" index="0"]
+[ext_resource path="res://TMX_Map/TestLevel_000/TestLevel_000.tmx" type="PackedScene" id=1]
+[ext_resource path="res://Entities/Enemies/MoveHorizontal/Entity_Enemy_H_0.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/Coin/Entity_Coin_0.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/Ammo/Entity_Ammo_0.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/Granade/Entity_Granade_0.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Entities/Health/Entity_Health_3.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Entities/PlayerStart/Entity_StartPoint.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Entities/Hazard/Hazard_Down/Entity_hazard_Down.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Entities/Hazard/Hazard_Up/Entity_hazard_Up.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Entities/Hazard/Hazard_Right/Entity_hazard_Right.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Entities/Hazard/Hazard_Left/Entity_hazard_Left.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Entities/InfoPanel/InfoPanel.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Entities/Teleport/Teleport.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Entities/Enemies/MoveVertical/Entity_Enemy_V_0.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Prefabs/MoveablePlatform/MoveablePlatform.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Prefabs/Player/Player.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Prefabs/HUD/HUD_Item_Info_HEALTH.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Prefabs/HUD/HUD_Item_Info_AMMO.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Prefabs/HUD/HUD_Item_Info_COINS.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Prefabs/HUD/HUD_Item_Info_GRANADE.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Prefabs/MessagePanel/MessageInfoPanel.tscn" type="PackedScene" id=21]
+
+[node name="MAIN" type="Node" index="0"]
+
+[node name="TestLevel_000" parent="." index="0" instance=ExtResource( 1 )]
+
+[node name="Entities" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+
+[node name="Enemy_H_movement" parent="Entities" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 472, 88 )
+velocity = Vector2( 10, 0 )
+
+[node name="Coins_1" parent="Entities" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 118.729, 183.331 )
+
+[node name="Ammo" parent="Entities" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 201, 186 )
+
+[node name="Ammo2" parent="Entities" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 359, 186 )
+
+[node name="Granade 0" parent="Entities" index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 440, 234 )
+
+[node name="Granade 1" parent="Entities" index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 233, 250 )
+
+[node name="Health" parent="Entities" index="6" instance=ExtResource( 6 )]
+
+position = Vector2( 297, 187 )
+
+[node name="StartPoint" parent="Entities" index="7" instance=ExtResource( 7 )]
+
+position = Vector2( 641, 77 )
+
+[node name="Hazard_Down" parent="Entities" index="8" instance=ExtResource( 8 )]
+
+position = Vector2( 681, 177 )
+hurt_direction = Vector2( 0, -10 )
+removeOnHit = false
+
+[node name="Hazard_Up" parent="Entities" index="9" instance=ExtResource( 9 )]
+
+position = Vector2( 648, 39 )
+
+[node name="Hazard_Right" parent="Entities" index="10" instance=ExtResource( 10 )]
+
+position = Vector2( 792, 103 )
+hurt_direction = Vector2( -30, 0 )
+
+[node name="Hazard_Left" parent="Entities" index="11" instance=ExtResource( 11 )]
+
+position = Vector2( 359, 89 )
+
+[node name="InfoPanel" parent="Entities" index="12" instance=ExtResource( 12 )]
+
+position = Vector2( 905, 137 )
+panel_offset = Vector2( -10, -54 )
+
+[node name="DOOR_A" parent="Entities" index="13" instance=ExtResource( 13 )]
+
+position = Vector2( 971, 129 )
+source_name = "DOOR_A"
+target_name = "DOOR_B"
+
+[node name="DOOR_B" parent="Entities" index="14" instance=ExtResource( 13 )]
+
+position = Vector2( 1467, 177 )
+source_name = "DOOR_B"
+target_name = "DOOR_A"
+
+[node name="Enemy_V_movement" parent="Entities" index="15" instance=ExtResource( 14 )]
+
+position = Vector2( 728, 121 )
+velocity = Vector2( 0, 1 )
+
+[node name="MoveablePlatform" parent="Entities" index="16" instance=ExtResource( 15 )]
+
+position = Vector2( 366, 349 )
+
+[node name="Player" parent="." index="2" instance=ExtResource( 16 )]
+
+position = Vector2( 247.483, 99.1266 )
+jumpForce = 380
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
+
+editor/display_folded = true
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="HUD_Item_Info-HEALTH" parent="CanvasLayer" index="0" instance=ExtResource( 17 )]
+
+margin_left = 9.0
+margin_top = 13.0
+margin_right = 57.0
+margin_bottom = 29.0
+
+[node name="HUD_Item_Info-AMMO" parent="CanvasLayer" index="1" instance=ExtResource( 18 )]
+
+margin_left = 9.0
+margin_top = 33.0
+margin_right = 57.0
+margin_bottom = 49.0
+
+[node name="HUD_Item_Info-COINS" parent="CanvasLayer" index="2" instance=ExtResource( 19 )]
+
+margin_left = 9.0
+margin_top = 54.0
+margin_right = 57.0
+margin_bottom = 70.0
+
+[node name="HUD_Item_Info-GRANADE" parent="CanvasLayer" index="3" instance=ExtResource( 20 )]
+
+margin_left = 8.0
+margin_top = 74.0
+margin_right = 56.0
+margin_bottom = 90.0
+
+[node name="MSGPanel" parent="." index="4" instance=ExtResource( 21 )]
+
+margin_left = 744.0
+margin_top = -103.0
+margin_right = 744.0
+margin_bottom = -103.0
 
 

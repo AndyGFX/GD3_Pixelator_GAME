@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Prefabs/MoveablePlatform/MoveablePlatform.gd" type="Script" id=1]
+[ext_resource path="res://Prefabs/MoveablePlatform/MoveablePlatform.png" type="Texture" id=2]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 62.1077, -4, 0, 0, 0, 0, -59, -4 )
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 31.9653, 2.77689 )
+
+[node name="MoveablePlatform" type="Path2D"]
+
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+scale = Vector2( 1.05691, 1 )
+curve = SubResource( 1 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+speed = 2
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." index="0"]
+
+position = Vector2( 62.1077, -4 )
+rotation = 3.14159
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = false
+loop = true
+lookahead = 4.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="PathFollow2D" index="0"]
+
+rotation = 3.14159
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="Sprite" type="Sprite" parent="PathFollow2D/KinematicBody2D" index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/KinematicBody2D" index="1"]
+
+position = Vector2( 0.0296326, -5.63329 )
+shape = SubResource( 2 )
+
+

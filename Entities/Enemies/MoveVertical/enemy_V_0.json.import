@@ -1,0 +1,16 @@
+[remap]
+
+importer="eska.aseprite_importer"
+type="PackedScene"
+path="res://.import/enemy_V_0.json-b7a8bcc406207d8c7d431fbb5b6310af.scn"
+
+[deps]
+
+source_file="res://Entities/Enemies/MoveVertical/enemy_V_0.json"
+dest_files=[ "res://.import/enemy_V_0.json-b7a8bcc406207d8c7d431fbb5b6310af.scn" ]
+
+[params]
+
+sheet_image=""
+post_script=""
+autoplay_animation=""

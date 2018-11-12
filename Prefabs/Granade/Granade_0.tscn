@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Prefabs/Granade/Granade.gd" type="Script" id=1]
+[ext_resource path="res://Prefabs/Granade/Granade_0.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 4.86051
+
+[node name="Granade_0" type="RigidBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.26
+gravity_scale = 2.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 3
+contact_monitor = true
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Applied Forces", "Linear" ]
+granadeDamage = 25
+ExplosionSFXName = "Explosion1"
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 1 )
+
+
