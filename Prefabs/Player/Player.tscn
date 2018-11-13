@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Prefabs/Player/Platform2DPlayerController.gd" type="Script" id=1]
 [ext_resource path="res://Animations/Player/Soso MASTER animation.json" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Sounds/Shoot1.wav" type="AudioStream" id=4]
 [ext_resource path="res://Sounds/Explosion3.wav" type="AudioStream" id=5]
 [ext_resource path="res://Sounds/Pickup1.wav" type="AudioStream" id=6]
+[ext_resource path="res://Prefabs/LaserFire/LaserRayCaster.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/Light shape/RadialFalloff.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -23,7 +25,7 @@ custom_solver_bias = 0.0
 radius = 5.0
 height = 10.0
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -155,7 +157,54 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-_sections_unfolded = [ "Smoothing" ]
+_sections_unfolded = [ "Material", "Smoothing" ]
+
+[node name="LaserRayCaster" parent="." index="6" instance=ExtResource( 7 )]
+
+position = Vector2( -0.440125, 5.72165 )
+angle_step = 10
+
+[node name="LaserRayCaster2" parent="." index="7" instance=ExtResource( 7 )]
+
+position = Vector2( -0.440125, 5.72165 )
+angle_step = 10
+angle_offset = 45
+
+[node name="LaserRayCaster3" parent="." index="8" instance=ExtResource( 7 )]
+
+position = Vector2( -0.440125, 5.72165 )
+angle_step = 10
+angle_offset = 180
+
+[node name="LaserRayCaster4" parent="." index="9" instance=ExtResource( 7 )]
+
+position = Vector2( -0.440125, 5.72165 )
+angle_step = 10
+angle_offset = 270
+
+[node name="Light2D" type="Light2D" parent="." index="10"]
+
+enabled = true
+editor_only = false
+texture = ExtResource( 8 )
+offset = Vector2( 0, 0 )
+texture_scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 0
+shadow_filter_smooth = 0.0
+shadow_item_cull_mask = 1
 
 [connection signal="area_entered" from="TriggerDetector" to="." method="_on_TriggerDetector_area_entered"]
 

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Prefabs/Pixel Hilighter/PixelFall.png" type="Texture" id=1]
+[ext_resource path="res://Prefabs/Pixel Hilighter/PixelHilighter.gd" type="Script" id=2]
+
+[node name="PixelHilighter" type="Sprite" index="0"]
+
+scale = Vector2( 0.25, 0.25 )
+z_index = -1
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
+fade_time = 0.5
+
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://TMX_Map/TestLevel_000/TestLevel_000.tmx" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Enemies/MoveHorizontal/Entity_Enemy_H_0.tscn" type="PackedScene" id=2]
@@ -21,9 +21,8 @@
 [ext_resource path="res://Prefabs/HUD/HUD_Item_Info_COINS.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Prefabs/HUD/HUD_Item_Info_GRANADE.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Prefabs/MessagePanel/MessageInfoPanel.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Prefabs/LaserFire/LaserRayCaster.tscn" type="PackedScene" id=22]
 
-[node name="MAIN" type="Node" index="0"]
+[node name="MAIN" type="Node"]
 
 [node name="TestLevel_000" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -46,7 +45,7 @@ position = Vector2( 201, 186 )
 
 [node name="Ammo2" parent="Entities" index="3" instance=ExtResource( 4 )]
 
-position = Vector2( 359, 186 )
+position = Vector2( 1150.49, 221.198 )
 
 [node name="Granade 0" parent="Entities" index="4" instance=ExtResource( 5 )]
 
@@ -153,15 +152,9 @@ margin_bottom = 90.0
 
 [node name="MSGPanel" parent="." index="4" instance=ExtResource( 21 )]
 
-margin_left = 744.0
-margin_top = -103.0
-margin_right = 744.0
-margin_bottom = -103.0
-
-[node name="LaserRayCaster" parent="." index="5" instance=ExtResource( 22 )]
-
-position = Vector2( 356.858, 163.21 )
-angle = 205.0
+margin_left = -292.0
+margin_top = -361.0
+margin_right = -292.0
+margin_bottom = -361.0
 
 
-[editable path="LaserRayCaster"]

@@ -9,18 +9,20 @@ radius = 10.0
 
 [node name="LaserRayCaster" type="KinematicBody2D" index="0"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
-collision_mask = 3
+collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Transform" ]
-angle = 0.0
-length = 50.0
+_sections_unfolded = [ "Collision", "Transform", "collision" ]
+length = 128.0
+angle_step = 2
+angle_offset = 0
+debug = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
 shape = SubResource( 1 )
+disabled = true
 
 
