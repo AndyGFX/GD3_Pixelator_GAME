@@ -1,12 +1,26 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Prefabs/LaserFire/LaserRayCaster.gd" type="Script" id=1]
 
-[node name="LaserRayCaster" type="Node2D" index="0"]
+[sub_resource type="CircleShape2D" id=1]
 
+custom_solver_bias = 0.0
+radius = 10.0
+
+[node name="LaserRayCaster" type="KinematicBody2D" index="0"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 3
+collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
-angle = 45.0
+_sections_unfolded = [ "Collision", "Transform" ]
+angle = 0.0
 length = 50.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+shape = SubResource( 1 )
 
 

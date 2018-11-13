@@ -111,7 +111,7 @@ position = Vector2( 366, 349 )
 
 [node name="Player" parent="." index="2" instance=ExtResource( 16 )]
 
-position = Vector2( 247.483, 99.1266 )
+position = Vector2( 238.572, 102.42 )
 jumpForce = 380
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
@@ -160,8 +160,8 @@ margin_bottom = -103.0
 
 [node name="LaserRayCaster" parent="." index="5" instance=ExtResource( 22 )]
 
-position = Vector2( 235.392, 126.248 )
-angle = 80.69
-length = 100.0
+position = Vector2( 356.858, 163.21 )
+angle = 205.0
 
 
+[editable path="LaserRayCaster"]
