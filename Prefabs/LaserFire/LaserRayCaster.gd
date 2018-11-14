@@ -17,7 +17,7 @@ var pos = Vector2(0,0)
 var ray_result
 var check_ray = false
 var ignore = []
-
+var hit_edge_color = Color(1,1,1,1)
 func _ready():
 	ignore = [self, 
 				self.get_parent(),
@@ -39,13 +39,23 @@ func CastDirection():
 	ray_result = space_state.intersect_ray(self.get_parent().get_global_position(),self.get_parent().get_global_position()+self.target, self.ignore, collision_mask) 
 	if ray_result:
 		if ray_result.collider.is_in_group("SOLID"):
+			hit_edge_color = Color(1,1,1,1)
+			check_ray = true
+		if ray_result.collider.is_in_group("TELEPORT"):
+			hit_edge_color = Color(0,1,0,1)
+			check_ray = true
+		if ray_result.collider.is_in_group("ENEMY"):
+			hit_edge_color = Color(1,0,0,1)
+			check_ray = true
+		if ray_result.collider.is_in_group("PLATFORM"):
+			hit_edge_color = Color(0,1,0,1)
 			check_ray = true
 	
 	
 	if check_ray:
 		target = ray_result.position
-		Utils.Instantiate(Globals.pixel,target)
-		
+		var obj = Utils.Instantiate(Globals.pixel,target)
+		obj.self_modulate = hit_edge_color
 	update()
 	pass
 	

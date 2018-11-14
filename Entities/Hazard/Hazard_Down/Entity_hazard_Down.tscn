@@ -22,7 +22,9 @@ _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
+hurt_direction = Vector2( 0, -10 )
 damage = 10
+removeOnHit = false
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

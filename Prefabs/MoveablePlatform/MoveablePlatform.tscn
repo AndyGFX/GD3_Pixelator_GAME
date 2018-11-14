@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Prefabs/MoveablePlatform/MoveablePlatform.gd" type="Script" id=1]
-[ext_resource path="res://Prefabs/MoveablePlatform/MoveablePlatform.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Utils/AddToGroup.gd" type="Script" id=2]
+[ext_resource path="res://Prefabs/MoveablePlatform/MoveablePlatform.png" type="Texture" id=3]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -15,7 +16,7 @@ _data = {
 custom_solver_bias = 0.0
 extents = Vector2( 31.9653, 2.77689 )
 
-[node name="MoveablePlatform" type="Path2D"]
+[node name="MoveablePlatform" type="Path2D" index="0"]
 
 self_modulate = Color( 0.5, 0.6, 1, 0.7 )
 scale = Vector2( 1.05691, 1 )
@@ -44,10 +45,12 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
+script = ExtResource( 2 )
+groupName = "PLATFORM"
 
 [node name="Sprite" type="Sprite" parent="PathFollow2D/KinematicBody2D" index="0"]
 
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/KinematicBody2D" index="1"]

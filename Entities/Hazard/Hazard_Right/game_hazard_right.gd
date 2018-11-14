@@ -34,3 +34,8 @@ func _on_body_entered(body):
 		if removeOnHit: queue_free()	
 	pass
 
+# ---------------------------------------------------------
+# On hit decrease armor (not used for HAZARD)
+# ---------------------------------------------------------
+func set_armor(new_value):
+	pass

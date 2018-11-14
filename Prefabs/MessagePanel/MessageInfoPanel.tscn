@@ -1,15 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Prefabs/MessagePanel/MessageInfo.gd" type="Script" id=1]
-[ext_resource path="res://Prefabs/MessagePanel/MessageInfoFrame.png" type="Texture" id=2]
-[ext_resource path="res://Fonts/pixelmix_bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Materials/MAT_UnShaded.tres" type="Material" id=1]
+[ext_resource path="res://Prefabs/MessagePanel/MessageInfo.gd" type="Script" id=2]
+[ext_resource path="res://Prefabs/MessagePanel/MessageInfoFrame.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/pixelmix_bold.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 8
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="Animation" id=2]
@@ -42,8 +43,9 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="MSGPanel" type="Control" index="0"]
+[node name="MSGPanel" type="Control"]
 
+material = ExtResource( 1 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -58,11 +60,13 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Material" ]
 offset = Vector2( 0, 0 )
 
 [node name="Frame" type="NinePatchRect" parent="." index="0"]
 
+use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -75,15 +79,16 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 patch_margin_left = 16
 patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 8
-_sections_unfolded = [ "Patch Margin", "Visibility" ]
+_sections_unfolded = [ "Material", "Patch Margin", "Visibility" ]
 
 [node name="Label" type="Label" parent="." index="1"]
 
+use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -105,7 +110,7 @@ autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Visibility", "custom_fonts" ]
+_sections_unfolded = [ "Material", "Visibility", "custom_fonts" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 

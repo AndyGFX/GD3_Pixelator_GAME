@@ -8,6 +8,7 @@ var _start = 0
 var _end = 0.9999
 
 func _ready():
+	
 	self.tween = Tween.new()
 	self.add_child(tween)
 	self.tween.interpolate_property(self.follow,"unit_offset",_start,_end,speed,self.tween.TRANS_LINEAR,self.tween.EASE_IN_OUT)	

@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Fonts/pixelmix_bold.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Prefabs/DamageHitPoints/DamageHitPoint.gd" type="Script" id=2]
+[ext_resource path="res://Materials/MAT_UnShaded.tres" type="Material" id=1]
+[ext_resource path="res://Fonts/pixelmix_bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Prefabs/DamageHitPoints/DamageHitPoint.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 8
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="Animation" id=2]
@@ -49,6 +50,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Label" type="Label" parent="." index="0"]
 
+material = ExtResource( 1 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -70,8 +72,8 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 2 )
-_sections_unfolded = [ "Rect", "Theme", "Visibility", "custom_fonts" ]
+script = ExtResource( 3 )
+_sections_unfolded = [ "Material", "Theme", "custom_fonts" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Label" index="0"]
 

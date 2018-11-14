@@ -12,7 +12,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="HUD_Item_Info" type="TextureRect"]
+[node name="HUD_Item_Info" type="TextureRect" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -31,6 +31,8 @@ stretch_mode = 0
 
 [node name="Label_ItemValue" type="Label" parent="." index="0"]
 
+light_mask = 2
+use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -55,7 +57,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script = ExtResource( 3 )
-_sections_unfolded = [ "Theme", "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Material", "Visibility", "custom_colors", "custom_fonts" ]
 itemName = "granade"
 
 

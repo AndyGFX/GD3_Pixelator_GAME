@@ -49,3 +49,4 @@ func Instantiate(object,pos):
 	var _instance = object.instance()
 	_instance.set_position(pos)
 	Utils.FindNode("Container").add_child(_instance)
+	return _instance
