@@ -22,7 +22,7 @@
 [ext_resource path="res://Prefabs/HUD/HUD_Item_Info_GRANADE.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Prefabs/MessagePanel/MessageInfoPanel.tscn" type="PackedScene" id=21]
 
-[node name="MAIN" type="Node"]
+[node name="MAIN" type="Node" index="0"]
 
 [node name="TestLevel_000" parent="." index="0" instance=ExtResource( 1 )]
 
