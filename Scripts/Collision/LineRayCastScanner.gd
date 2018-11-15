@@ -9,6 +9,7 @@ var ray_angle = 0
 var ray_from_pos =Vector2()
 var ray_to_pos =Vector2()
 var _debug = false;
+var _debug_dot_size = 2
 var _hit = null;
 
 func SetLength(_from,_length):
@@ -56,6 +57,8 @@ func GetHitPoint():
 	if ray_result:
 		result = ray_result
 	self._hit = result
+	
+	if self._debug: self.owner.update()
 	return result
 	pass
 
@@ -66,12 +69,15 @@ func SetVisualDebug(state):
 func VisualDebug():
 
 	self.owner.draw_line(self.ray_from_pos,self.ray_to_pos,Color(1,0,0,1))	
-	self.owner.draw_circle(self.ray_from_pos, 4, Color(1,0,0,1))
-	self.owner.draw_circle(self.ray_to_pos, 4, Color(1,0,0,1))
+	self.owner.draw_circle(self.ray_from_pos, self._debug_dot_size, Color(1,0,0,1))
+	self.owner.draw_circle(self.ray_to_pos, self._debug_dot_size, Color(1,0,0,1))
 		
 	if self._hit and self._debug:
-		self.owner.draw_circle(self.GetLocalPos(self._hit.position), 4, Color(0,1,0,1))
-		self.owner.draw_line(self.ray_from_pos,self.GetLocalPos(self._hit.position),Color(0,1,0,1))	
-		
+		# draw hit point
+		self.owner.draw_circle(self.GetLocalPos(self._hit.position), self._debug_dot_size, Color(0,1,0,1))
+		# draw line from start to hit point
+		self.owner.draw_line(self.ray_from_pos,self.GetLocalPos(self._hit.position),Color(0,1,0,1))
+		# draw normal
+		self.owner.draw_line(self.GetLocalPos(self._hit.position), self.GetLocalPos(self._hit.position)+(self._hit.normal*16),Color(0,1,0,1))	
 		
 	pass

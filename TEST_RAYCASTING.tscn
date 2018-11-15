@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Prefabs/TestObject/RayGenerator.gd" type="Script" id=1]
 
@@ -21,6 +21,11 @@ extents = Vector2( 90.5335, 10 )
 
 custom_solver_bias = 0.0
 extents = Vector2( 87.638, 10 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 12.392, 10 )
 
 [sub_resource type="RectangleShape2D" id=5]
 
@@ -51,16 +56,23 @@ shape = SubResource( 2 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Collision zones" index="2"]
 
-position = Vector2( 134.333, 109.623 )
+position = Vector2( 112.28, 50.8157 )
 rotation = 1.5708
 shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Collision zones" index="3"]
 
-position = Vector2( 249.851, 120.24 )
+position = Vector2( 327.036, 116.565 )
 rotation = 1.5708
 shape = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Collision zones" index="4"]
+
+position = Vector2( 277.049, 87.8959 )
+rotation = 1.5708
+shape = SubResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="RayGenerator" type="KinematicBody2D" parent="." index="1"]
@@ -71,6 +83,7 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+angle = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RayGenerator" index="0"]
 
