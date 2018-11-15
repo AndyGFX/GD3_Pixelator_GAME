@@ -47,6 +47,12 @@ const pickup_anim = preload("res://Prefabs/PickupItems/PickupAnimation/PickupIte
 # pixel prefabs
 const pixel = preload("res://Prefabs/Pixel Hilighter/PixelHilighter.tscn")
 
+# ---------------------------------------------------------------------------
+# GAME Classes
+# ---------------------------------------------------------------------------
+
+var TLineRayCastScanner = preload("res://Scripts/Collision/LineRayCastScanner.gd")
+
 # ---------------------------------------------------------
 # Show flying hit points on enemy
 # ---------------------------------------------------------

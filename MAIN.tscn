@@ -23,7 +23,7 @@
 [ext_resource path="res://Materials/MAT_UnShaded.tres" type="Material" id=21]
 [ext_resource path="res://Prefabs/MessagePanel/MessageInfoPanel.tscn" type="PackedScene" id=22]
 
-[node name="MAIN" type="Node"]
+[node name="MAIN" type="Node" index="0"]
 
 [node name="TestLevel_000" parent="." index="0" instance=ExtResource( 1 )]
 

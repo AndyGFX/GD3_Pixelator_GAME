@@ -18,6 +18,7 @@ var ray_result
 var check_ray = false
 var ignore = []
 var hit_edge_color = Color(1,1,1,1)
+
 func _ready():
 	ignore = [self, 
 				self.get_parent(),
