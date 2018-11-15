@@ -9,10 +9,9 @@ render_priority = 0
 blend_mode = 0
 light_mode = 1
 
-[node name="PixelHilighter" type="Sprite"]
+[node name="PixelHilighter" type="Sprite" index="0"]
 
 material = SubResource( 1 )
-scale = Vector2( 0.25, 0.25 )
 z_index = -1
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
