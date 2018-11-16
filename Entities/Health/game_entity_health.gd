@@ -10,6 +10,7 @@ func _get_item_rect():
 	return self.get_node("Sprite").get_item_rect()
 
 func _ready():
+	self.add_to_group("ITEM")
 	pass
 
 # ---------------------------------------------------------

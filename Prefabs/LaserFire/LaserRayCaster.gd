@@ -75,6 +75,10 @@ func _physics_process(delta):
 				self.hit_edge_color = Color(0,1,0,1)
 				self.hit_edge_enabled = true
 			
+			if self.hit[i].collider.is_in_group("ITEM"):
+				self.hit_edge_color = Color(1,0.5,0,1)
+				self.hit_edge_enabled = true
+			
 			if self.hit_edge_enabled:
 				var obj = Utils.Instantiate(Globals.pixel,hit[i].position)
 				obj.self_modulate = hit_edge_color

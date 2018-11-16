@@ -9,6 +9,7 @@ func _get_item_rect():
 	return self.get_node("Sprite").get_item_rect()
 	
 func _ready():
+	self.add_to_group("ITEM")
 	pass
 
 # pickup ammo item method which is called from area detector assigned on player

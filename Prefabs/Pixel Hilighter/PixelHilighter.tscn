@@ -17,5 +17,6 @@ texture = ExtResource( 1 )
 script = ExtResource( 2 )
 _sections_unfolded = [ "Material", "Transform", "Z Index" ]
 fade_time = 0.25
+fade_alpha_speed = 2
 
 
