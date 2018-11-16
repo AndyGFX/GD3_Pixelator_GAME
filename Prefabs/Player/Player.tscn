@@ -30,7 +30,7 @@ height = 10.0
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -197,6 +197,8 @@ collision/safe_margin = 0.08
 script = ExtResource( 8 )
 debug = false
 ray_count = 2
+ray_speed = [ 500, -500, 500, -500 ]
+ray_angle_offset = [ 0, 180, 180, 270 ]
 angular_speed = 500
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Laser Scanner" index="0"]
