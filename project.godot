@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="GD3_Pixelator_GAME"
-run/main_scene="res://TEST_RAYCASTING.tscn"
+run/main_scene="res://MAIN.tscn"
 config/icon="res://icon.png"
 
 [autoload]

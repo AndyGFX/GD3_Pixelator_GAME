@@ -114,6 +114,7 @@ jumpForce = 380
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -156,5 +157,7 @@ margin_left = -292.0
 margin_top = -361.0
 margin_right = -292.0
 margin_bottom = -361.0
+
+[node name="Container" type="Node2D" parent="." index="5"]
 
 

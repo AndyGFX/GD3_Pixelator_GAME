@@ -22,12 +22,12 @@ extents = Vector2( 90.5335, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 87.638, 10 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 12.392, 10 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -72,12 +72,12 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 277.049, 87.8959 )
 rotation = 1.5708
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="RayGenerator" type="KinematicBody2D" parent="." index="1"]
 
-position = Vector2( 194, 117 )
+position = Vector2( 236, 80 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -87,8 +87,10 @@ angle = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RayGenerator" index="0"]
 
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 disabled = true
 _sections_unfolded = [ "Transform" ]
+
+[node name="Container" type="Node2D" parent="." index="2"]
 
 

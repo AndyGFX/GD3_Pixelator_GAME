@@ -12,7 +12,7 @@ func _ready():
 	self.scan.SetLength(24,96)
 	self.scan.SetAngle(self.angle)
 	self.scan.SetRayIgnoreList([self])
-	self.scan.SetVisualDebug(true)
+	self.scan.SetVisualDebug(self,true)
 	pass
 
 
@@ -31,6 +31,7 @@ func _physics_process(delta):
 	self.angle = (self.angle + 1) % 360	
 	self.scan.SetAngle(self.angle )
 	self.hit = self.scan.GetHitPoint()
-	
+	if self.hit:
+		Utils.Instantiate(Globals.pixel,hit.position)
 	
 	pass

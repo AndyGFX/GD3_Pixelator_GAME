@@ -1,77 +1,58 @@
-#tool
 extends KinematicBody2D
 
-
-
-var hit = Vector2()
-var dir = Vector2(0,1)
-var target = Vector2()
-var angle = 0
-export (float,0,128)var length = 128.0
-export var angle_step = 2
-export var angle_offset = 0
-export var debug = false;
-var laser_color = Color(1.0, .329, .298)
-var hit_color = Color(0.0, 1.0, 0.0)
-var pos = Vector2(0,0)
-var ray_result
-var check_ray = false
+var scan = [];
+var hit = [];
 var ignore = []
-var hit_edge_color = Color(1,1,1,1)
+
+export var debug = false;
+export var ray_count = 4
+export var angular_speed = 50
 
 func _ready():
-	ignore = [self, 
+	self.ignore = [self, 
 				self.get_parent(),
 				self.get_parent().get_node("PlayerShapeWalk"),
 				self.get_parent().get_node("PlayerShapeCrunch"),
 				self.get_parent().get_node("TriggerDetector")]
-	pass
-
-func CastDirection():
 	
-	check_ray = false
-	
-	var space_state = get_world_2d().direct_space_state
-	
-	var rad = deg2rad(angle)
-	dir = Vector2(cos(rad), sin(rad)).normalized()
-	target = (dir*length)
-	
-	ray_result = space_state.intersect_ray(self.get_parent().get_global_position(),self.get_parent().get_global_position()+self.target, self.ignore, collision_mask) 
-	if ray_result:
-		if ray_result.collider.is_in_group("SOLID"):
-			hit_edge_color = Color(1,1,1,1)
-			check_ray = true
-		if ray_result.collider.is_in_group("TELEPORT"):
-			hit_edge_color = Color(0,1,0,1)
-			check_ray = true
-		if ray_result.collider.is_in_group("ENEMY"):
-			hit_edge_color = Color(1,0,0,1)
-			check_ray = true
-		if ray_result.collider.is_in_group("PLATFORM"):
-			hit_edge_color = Color(0,1,0,1)
-			check_ray = true
-	
-	
-	if check_ray:
-		target = ray_result.position
-		var obj = Utils.Instantiate(Globals.pixel,target)
-		obj.self_modulate = hit_edge_color
-	update()
-	pass
-	
-func _draw():
-	if debug:
-		draw_circle(pos, 4, laser_color)
-		if check_ray: draw_circle(target-self.position, 4, hit_color)
-		draw_line(pos, target-self.position, laser_color) 
+	for i in range(self.ray_count):
+		self.scan.append(Globals.TLineRayCastScanner.new())
+		self.hit.append(null)
+		self.scan[i].SetOwner(self)
+		self.scan[i].SetLength(16,96)
+		self.scan[i].SetAngle(i*90+45)
+		self.scan[i].SetRayIgnoreList(self.ignore)
+		self.scan[i].SetVisualDebug(self,self.debug)
 		pass
 	
-func _process(delta):
-	if Engine.is_editor_hint():
-        update()
-	angle = (angle + angle_offset + self.angle_step) % 360
+	pass
+
+# ---------------------------------------------------------
+# On Update preview
+# ---------------------------------------------------------
+func _draw():
+	for i in range(self.ray_count):
+		self.scan[i].VisualDebug()		
+		pass
 	
-	#if angle>360: angle = 0.0
+func CastDirection():
+	
+	for i in range(self.ray_count):	
+		self.hit[i] = self.scan[i].GetHitPoint()
+		pass	
+	pass
+
+	
+func _physics_process(delta):
+
+	# update angle
+	for i in range(self.ray_count):	
+		var rot = self.scan[i].GetAngle() + self.angular_speed * delta
+		rot = int(rot) % 360
+		self.scan[i].SetAngle(rot)
+		
 	CastDirection()
+	for i in range(self.ray_count):
+		if hit[i]: 
+			Utils.Instantiate(Globals.pixel,hit[i].position)
 	pass
