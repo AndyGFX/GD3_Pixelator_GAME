@@ -137,10 +137,13 @@ position = Vector2( -2, 0 )
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of 16b1885... Set explosion material
 =======
 [node name="Container" type="Node2D" parent="." index="5"]
 
+>>>>>>> parent of 16b1885... Set explosion material
+=======
 >>>>>>> parent of 16b1885... Set explosion material
 =======
 >>>>>>> parent of 16b1885... Set explosion material
