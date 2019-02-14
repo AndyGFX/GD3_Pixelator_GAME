@@ -127,6 +127,11 @@ margin_top = -361.0
 margin_right = -292.0
 margin_bottom = -361.0
 
+<<<<<<< HEAD
 [node name="Container" type="Node2D" parent="."]
 position = Vector2( -2, 0 )
+=======
+[node name="Container" type="Node2D" parent="." index="5"]
+
+>>>>>>> parent of 16b1885... Set explosion material
 
