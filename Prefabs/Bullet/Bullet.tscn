@@ -20,6 +20,8 @@ export (int,1,4) var ray_count = 4
 export var ray_speed = [500,500,500,500]
 export var ray_angle_offset = [0,90,180,270]
 export var angular_speed = 50
+export var min_cast = 16
+export var max_cast = 96
 
 func _ready():
 	self.ignore = [self, 
@@ -32,7 +34,7 @@ func _ready():
 		self.scan.append(Globals.TLineRayCastScanner.new())
 		self.hit.append(null)
 		self.scan[i].SetOwner(self)
-		self.scan[i].SetLength(16,96)
+		self.scan[i].SetLength(self.min_cast,self.max_cast)
 		self.scan[i].SetAngle(self.ray_angle_offset[i])
 		self.scan[i].SetRayIgnoreList(self.ignore)
 		self.scan[i].SetVisualDebug(self,self.debug)
@@ -121,6 +123,8 @@ ray_count = 2
 ray_speed = [ 0, 0, 0, 0 ]
 ray_angle_offset = [ 90, 270, 180, 270 ]
 angular_speed = 0
+min_cast = 8
+max_cast = 96
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
