@@ -10,7 +10,7 @@ export var removeOnHit = false
 func _ready():
 	enemy = get_node(".")
 	#set_fixed_process(true)
-	add_to_group("ENEMY")
+	self.add_to_group("ENEMY")
 	connect("area_entered",self,"_on_area_entered")
 	connect("body_entered",self,"_on_body_entered")
 	pass
