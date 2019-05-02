@@ -128,4 +128,3 @@ margin_bottom = -361.0
 
 [node name="Container" type="Node2D" parent="."]
 position = Vector2( -2, 0 )
-
